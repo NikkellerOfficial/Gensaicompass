@@ -1,0 +1,23 @@
+.btn-submit {
+  display: inline-block; /* 幅・高さ・余白を有効にする重要設定 */
+  width: 10%; /* 親要素いっぱいに広げる場合（必要に応じて px 指定や max-width を） */
+  max-width: 300px; /* 横に広がりすぎないように制限 */
+
+  /* 2. 見た目の装飾 */
+  background-color: rgb(11, 11, 233); /* 定義した変数、なければグレー */
+  color: white; /* 文字色（背景が白系なら濃い色） */
+  text-decoration: none; /* リンクの下線を消す */
+  border-radius: 6px; /* 角を丸くする */
+  font-size: 15px;
+
+  /* 3. 余白と配置 */
+  padding: 5px 10px; /* 上下・左右の余白でボタンの厚みを出す */
+  margin: 0 auto; /* 中央寄せ（display: blockの場合に有効） */
+  text-align: center; /* 文字を中央揃え */
+  font-weight: bold; /* 文字を太く */
+  border: none;
+}
+.btn-submit:hover {
+  opacity: 0.5; /* 少し透明にしてクリックできる感を出す */
+  cursor: pointer;
+}

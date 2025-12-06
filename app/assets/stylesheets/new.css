@@ -1,0 +1,10 @@
+.field {
+  display: flex;
+  align-items: center;
+  width: 50%;
+}
+.login {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}

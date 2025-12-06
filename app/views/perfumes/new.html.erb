@@ -1,0 +1,53 @@
+<%= form_for(@perfume, class: 'form-horizontal', role: 'form') do |f| %>
+            <div class="container-sindan">
+                <div class="row">
+                    <div class="col-12">
+                        <p>Question1. あなたの住む世帯の中に女性はいらっしゃいますか？</p>
+                    </div>
+                    <div class="col-6">
+                        <p><%= f.check_box :question, {multiple: true}, "1", nil %>いる</p>
+                    </div>
+                    <div class="col-6">
+                        <p><%= f.check_box :question, {multiple: true}, "2", nil %>いない</p>
+                    </div>
+
+
+                    <div class="col-12">
+                        <p>Question2. あなたの住む世帯の中に乳幼児はいらっしゃいますか？</p>
+                    </div>
+                    <div class="col-6">
+                        <p><%= f.check_box :question, {multiple: true}, "1", nil %>いる</p>
+                    </div>
+                    <div class="col-6">
+                        <p><%= f.check_box :question, {multiple: true}, "2", nil %>いない</p>
+                    </div>
+
+
+                    <div class="col-12">
+                        <p>Question3. あなたの住む世帯の中に高齢者はいらっしゃいますか？</p>
+                    </div>
+                    <div class="col-6">
+                        <p><%= f.check_box :question, {multiple: true}, "1", nil %>いる</p>
+                    </div>
+                    <div class="col-6">
+                        <p><%= f.check_box :question, {multiple: true}, "2", nil %>いない</p>
+                    </div>
+
+
+                    <div class="col-12">
+                        <p>Question4.あなたの住む世帯の中に障がい者はいらっしゃいますか？</p>
+                    </div>
+                    <div class="col-6">
+                        <p><%= f.check_box :question, {multiple: true}, "1", nil %>いる</p>
+                    </div>
+                    <div class="col-6">
+                        <p><%= f.check_box :question, {multiple: true}, "2", nil %>いない</p>
+                    </div>
+                </div>
+            </div>
+            <div class="sindanbotan">
+                <%= f.submit "診断を終える" %>
+            </div>
+        <%= link_to "診断を中断する", user_path(current_user.id) %>
+        
+<% end %>

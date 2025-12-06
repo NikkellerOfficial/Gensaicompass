@@ -1,0 +1,15 @@
+<h1>GensaiCompass</h1>
+<h3>アイテムの詳細</h3>
+<div class="item">
+  <p><%= @item.name %></p>
+  <p><%= @item.about %></p>
+  <% if @item.image.attached? %>
+    <%= image_tag @item.image, size: '250x200'%>
+  <% end %>
+  <p><%= "目安の購入量：#{@item.number_person}#{@item.unit}" %></p>
+  <p><%="主に#{@item.category}で買えます"%></p>
+  
+</div>
+
+<%= link_to "マイページに戻る", user_path(current_user.id) %>
+<%= link_to "編集する", edit_item_path(@item.id) %>

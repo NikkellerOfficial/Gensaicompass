@@ -1,0 +1,65 @@
+<%= form_for @item do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, :size => 20 %>  
+  <div class="field">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
+  
+
+
+
+  <div class="field">
+    <%= f.label :category  %>
+    <%= f.select :category, 
+    [["スーパー", "スーパー"], 
+    ["ホームセンター", "ホームセンター"], 
+    ["コンビニ", "コンビニ"],
+    ["私物", "私物"],
+    ["その他", "その他"]], include_blank: "選択して下さい" %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :number_person  %>
+    <%= f.number_field :number_person, :size => 10 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :unit  %>
+    <%= f.select :unit, 
+    [["個", "個"], 
+    ["本", "本"],
+    ["L", "L"],
+    ["g","g"],
+    ["kg","kg"],
+    ["セット", "セット"], 
+    ["枚", "枚"]], include_blank: "選択して下さい" %>
+  </div>
+
+  
+  <div class="field">
+    <%= f.label :phase  %>
+    <%= f.number_field :phase, :size => 10 %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :about  %>
+    <%= f.text_area :about, :size => "30x2" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :speciality  %>
+    <%= f.select :speciality, 
+    [["一般", "一般"], 
+    ["女性", "女性"], 
+    ["高齢者", "高齢者"],
+    ["障害者", "障害者"],
+    ["乳幼児", "乳幼児"],
+    ["ペット", "ペット"]], include_blank: "選択して下さい" %>
+  </div>
+
+
+  <%= f.submit "更新する" %>
+<% end %>

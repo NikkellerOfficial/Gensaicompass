@@ -1,0 +1,38 @@
+<h2>GensaiCompass</h2>
+<h3>開発者用ページ</h3>
+
+<%= link_to "新規投稿へ", new_item_path %>
+
+<h3>購入場所絞り込み</h3>
+ <%= form_tag({controller:"items",action:"index"}, method: :get) do %>
+   <%= select_tag :search, 
+                 options_for_select(['スーパー', 'コンビニ', 'ドラッグストア']), 
+                 include_blank: 'すべて' %>
+   <%= submit_tag '絞り込む'  %>
+<% end %>
+
+<% if user_signed_in? %>
+  <%= link_to "マイページへ", user_path(current_user.id) %>
+<% end %>
+
+<div class="items-container">
+  <% @items.each do |t| %>
+  <div class="item">
+    <% if t.image.attached? %>
+            <%= image_tag t.image, size: '250x200'%>
+    <% end %>
+    <%= link_to t.user.name, user_path(t.user.id) %>
+    <%= t.user.email %>
+    <%= t.name %>
+    <%= t.about %>
+    <%= t.category %>
+    <%= "#{t.number_person}#{t.unit}" %>
+    <%= t.speciality %>
+    <%= "#{t.phase}次品" %>
+    <%= link_to "詳細へ", item_path(t.id) %>
+    <%= link_to "編集する", edit_item_path(t.id) %>
+    <%= button_to "削除する", item_path(t.id), method: :delete %>
+  </div>
+  <% end %>
+</div>
+
