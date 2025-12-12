@@ -1,0 +1,146 @@
+/* --- ベース設定 --- */
+.top-page-wrapper {
+  background-color: #050520; /* 深い紺色（画像に合わせて調整） */
+  color: white;
+  min-height: 100vh;
+  padding-bottom: 100px;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans", Meiryo, sans-serif;
+}
+
+/* 共通フォント設定（英語見出し用） */
+.hero-title,
+.section-title {
+  font-family: "Orbitron", sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* --- ヘッダー --- */
+.top-header {
+  background-color: #2b5cb8; /* 上部の青いバー */
+  padding: 10px 20px;
+  display: flex;
+  justify-content: flex-end; /* 右寄せ */
+}
+
+.header-links .header-link {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 20px;
+  font-size: 0.9rem;
+}
+
+/* --- ヒーローセクション --- */
+.hero-section {
+  padding: 80px 20px 40px;
+  text-align: left; /* 左寄せ */
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.hero-sub {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 0;
+}
+
+.hero-title {
+  font-size: 3.5rem; /* かなり大きく */
+  margin-top: 5px;
+  line-height: 1.2;
+}
+
+/* --- スクロール誘導 --- */
+.scroll-indicator {
+  text-align: center;
+  margin-top: 200px; /* 上の余白を大きくして、全体を下に押し下げる */
+  margin-bottom: 150px;
+  font-family: "Noto Serif JP", serif; /* 明朝体っぽい雰囲気 */
+}
+
+.scroll-indicator p {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.separator-line {
+  width: 200px;
+  height: 1px;
+  background-color: #555;
+  margin: 0 auto;
+}
+
+/* --- コンテンツ共通レイアウト --- */
+.mission-section,
+.philosophy-section,
+.how-to-section {
+  max-width: 900px; /* 画面幅いっぱいにしない */
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* テキストの行間を少し広めに */
+p {
+  line-height: 2;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* --- MISSION セクション（右寄せ） --- */
+.text-right {
+  text-align: right;
+}
+
+.mission-text {
+  margin-top: 20px;
+  font-family: serif;
+}
+
+/* --- PHILOSOPHY セクション（左寄せ） --- */
+.philosophy-text {
+  margin-top: 60px;
+  text-align: left;
+  font-family: serif;
+}
+
+/* --- HOW TO USE セクション（中央） --- */
+.text-center {
+  text-align: center;
+}
+
+.how-to-section {
+  margin-top: 60px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+/* --- 色の強調クラス --- */
+.highlight-blue {
+  color: #33ccff; /* 水色 */
+  font-weight: bold;
+}
+
+.highlight-red {
+  color: #ff3333; /* 赤色 */
+  font-weight: bold;
+}
+
+/* --- スクロールフェードイン用 --- */
+
+/* 初期状態：透明にして、少し下にずらしておく */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(50px); /* 50px下に配置 */
+  transition: opacity 1.5s ease, transform 1.5s ease; /* 1.5秒かけて変化 */
+}
+
+/* 表示状態：不透明にして、元の位置に戻す */
+.fade-in-up.active {
+  opacity: 1;
+  transform: translateY(0);
+}

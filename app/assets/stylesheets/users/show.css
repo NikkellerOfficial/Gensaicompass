@@ -21,3 +21,9 @@
   opacity: 0.5; /* 少し透明にしてクリックできる感を出す */
   cursor: pointer;
 }
+
+.my-custom-image {
+  width: 120px; /* 幅を指定 */
+  height: 120px; /* 高さを指定 */
+  object-fit: cover; /* 縦横比を維持して枠に収める */
+}

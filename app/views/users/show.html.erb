@@ -31,7 +31,6 @@
             <%= image_tag t.image, size: '250x200'%>
         <% end %>
         <%= link_to t.user.name, user_path(t.user.id) %>
-        <%= t.user.email %>
         <%= t.name %>
         <%= t.about %>
         <%= t.category %>
@@ -136,16 +135,11 @@
     <ul>
       <% recommended_items.each do |t| %>
       <% if t.image.attached? %>
-            <%= image_tag t.image, size: '250x200'%>
+            <%= image_tag t.image, class: "my-custom-image"%>
       <% end %>
-      <%= link_to t.user.name, user_path(t.user.id) %>
-      <%= t.user.email %>
       <%= t.name %>
-      <%= t.about %>
       <%= t.category %>
       <%= "#{t.number_person}#{t.unit}" %>
-      <%= t.speciality %>
-      <%= "#{t.phase}次品" %>
       <%= link_to "詳細へ", item_path(t.id) %>
       <% end %>
     </ul>

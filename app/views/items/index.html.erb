@@ -1,38 +1,54 @@
-<h2>GensaiCompass</h2>
-<h3>開発者用ページ</h3>
+<div class="top-page-wrapper">
 
-<%= link_to "新規投稿へ", new_item_path %>
+  
 
-<h3>購入場所絞り込み</h3>
- <%= form_tag({controller:"items",action:"index"}, method: :get) do %>
-   <%= select_tag :search, 
-                 options_for_select(['スーパー', 'コンビニ', 'ドラッグストア']), 
-                 include_blank: 'すべて' %>
-   <%= submit_tag '絞り込む'  %>
-<% end %>
+  <section class="hero-section fade-in-up">
+    <p class="hero-sub">備えこそ、唯一の<span class="highlight-blue">希望</span>。</p>
+    <h1 class="hero-title">GENSAI COMPASS</h1>
+  </section>
 
-<% if user_signed_in? %>
-  <%= link_to "マイページへ", user_path(current_user.id) %>
-<% end %>
+  <section class="buttons fade-in-up">
+      <li><%= button_to "新規登録", new_user_registration_path, class:"btn-submit" %></li>
+      <li><%= button_to "ログイン", new_user_session_path,class:"btn-submit" %></li>
+  </section>
 
-<div class="items-container">
-  <% @items.each do |t| %>
-  <div class="item">
-    <% if t.image.attached? %>
-            <%= image_tag t.image, size: '250x200'%>
-    <% end %>
-    <%= link_to t.user.name, user_path(t.user.id) %>
-    <%= t.user.email %>
-    <%= t.name %>
-    <%= t.about %>
-    <%= t.category %>
-    <%= "#{t.number_person}#{t.unit}" %>
-    <%= t.speciality %>
-    <%= "#{t.phase}次品" %>
-    <%= link_to "詳細へ", item_path(t.id) %>
-    <%= link_to "編集する", edit_item_path(t.id) %>
-    <%= button_to "削除する", item_path(t.id), method: :delete %>
+  <div class="scroll-indicator fade-in-up">
+    <p>⇓About This Page⇓</p>
+    <div class="separator-line"></div>
   </div>
-  <% end %>
-</div>
 
+  <section class="mission-section fade-in-up">
+    <h2 class="section-title text-right">OUR MISSION</h2>
+    
+    <div class="mission-text text-right">
+      <p>
+        異常気象、水害、台風、巨大地震、津波...<br>
+        かつてないほどの数の災害が、我々の日常を侵食しつつある。<br>
+        さらには、南海トラフ地震、首都直下地震、富士山噴火など、<br>
+        私たちの希望を蝕む数多のシミュレーション結果が出始めている。<br>
+        それにも関わらず、防災に自信がないと感じている人は<span class="highlight-red">約75.4 %</span>、<br>
+        さらに非常用持ち出し袋の準備が整っていない人は<span class="highlight-red">67%</span>にも上る。
+      </p>
+    </div>
+  </section>
+
+  <section class="philosophy-section fade-in-up">
+    <div class="philosophy-text">
+      <p>
+        自然に休日や暦などの概念はない。<br>
+        我々の意向と関係なく、容赦なく災いをもたらすことは多々ある。<br>
+        そんな世界で生き残るためには、<br>
+        日頃からの<span class="highlight-blue">「備え」</span>が重要になるのではないか。<br>
+        <span class="highlight-blue">「備え」こそ、唯一の希望。</span><br>
+        この言葉をモットーに、私たちは<br>
+        <span class="highlight-blue">防災グッズ収集を効率化、簡略化するための</span><br>
+        Webプロダクトを開発しました。
+      </p>
+    </div>
+  </section>
+
+  <section class="how-to-section">
+    <h2 class="section-title text-center">HOW TO USE</h2>
+  </section>
+
+</div>

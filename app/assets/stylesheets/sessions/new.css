@@ -1,0 +1,117 @@
+/* 全体のコンテナ設定 */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  /*color: white;
+
+  /* ↓もし背景色が反映されていない場合は以下を有効にしてください */
+  /* background-color: #120b38; */
+}
+
+/* --- タイトルエリア --- */
+.title-section {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.sub-title {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* 「希望」の部分だけ水色にする */
+.highlight {
+  color: #33ccff; /* 水色 */
+}
+
+.main-title {
+  font-family: "Orbitron", sans-serif; /* Google Fonts適用 */
+  font-size: 3rem;
+  margin: 0;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: white;
+}
+
+/* --- フォームエリア --- */
+.login-form {
+  width: 100%;
+  max-width: 400px; /* 入力欄が広がりすぎないように制限 */
+}
+
+.field-group {
+  margin-bottom: 25px;
+}
+
+.input-label {
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  font-weight: normal;
+}
+
+/* 入力ボックスのデザイン（グレーの四角） */
+.form-input {
+  width: 100%;
+  height: 45px;
+  background-color: #d9d9d9; /* 薄いグレー */
+  border: none;
+  border-radius: 0; /* 角丸なし */
+  padding: 0 10px;
+  font-size: 1rem;
+  box-sizing: border-box; /* paddingを含めて幅計算 */
+}
+
+.form-input:focus {
+  outline: 2px solid #33ccff; /* フォーカス時の枠線 */
+}
+
+/* チェックボックス周り */
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+.input-label-sm {
+  font-size: 0.9rem;
+}
+
+/* --- ログインボタン --- */
+.actions {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.btn-submit {
+  background-color: #006680; /* 暗めの青緑 */
+  color: white;
+  border: none;
+  padding: 15px 60px;
+  font-size: 0.5px;
+  cursor: pointer;
+  transition: background-color 0.1s;
+  width: 100%; /* ボタン幅を合わせる場合 */
+  max-width: 100%;
+}
+
+.btn-submit:hover {
+  background-color: #9ce90d; /* ホバー時に少し明るく */
+}
+
+/* Deviseのリンク（パスワード忘れなど）の色調整 */
+.shared-links a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+}

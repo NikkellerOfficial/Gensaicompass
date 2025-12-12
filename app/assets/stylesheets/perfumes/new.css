@@ -1,0 +1,66 @@
+/* 診断ページ全体のコンテナ */
+.container-sindan {
+  max-width: 600px; /* 読みやすい幅に制限 */
+  margin: 40px auto; /* 上下に余白 */
+  background-color:  #170445; /* 白背景 */
+  padding: 30px;
+  border-radius: 16px; /* 角丸 */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); /* 柔らかい影 */
+  color:white;
+}
+
+/* 質問文のスタイル */
+.container-sindan .col-12 p {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  border-left: 6px solid #4a90e2; /* 左側にアクセントライン（色はテーマカラーに合わせて変更可） */
+  padding-left: 12px;
+  line-height: 1.5;
+}
+
+/* 最初の質問の上マージンは消す */
+.container-sindan .row .col-12:first-child p {
+  margin-top: 0;
+}
+
+/* 選択肢（いる/いない）のカードスタイル */
+.container-sindan .col-6 p {
+  display: flex; /* 横並び */
+  align-items: center; /* 上下中央揃え */
+  justify-content: center; /* 左右中央揃え */
+  gap: 10px; /* チェックボックスと文字の間隔 */
+
+  background-color: #f8f9fa;
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
+  padding: 15px 10px;
+  margin-bottom: 10px;
+
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* ホバー時の挙動（PC向け） */
+.container-sindan .col-6 p:hover {
+  background-color: #eef5fc;
+  border-color: #4a90e2;
+}
+
+/* チェックボックス自体のスタイル調整 */
+.container-sindan input[type="checkbox"] {
+  transform: scale(1.3); /* 少し大きくする */
+  accent-color: #4a90e2; /* チェック時の色（モダンブラウザ対応） */
+  cursor: pointer;
+}
+
+/* 【重要】チェックが入った時に親要素（pタグ）の色を変える */
+/* ※最新ブラウザ向けの指定です。非対応ブラウザでは単に無視されます */
+.container-sindan .col-6 p:has(input:checked) {
+  background-color: #e3f2fd;
+  border-color: #4a90e2;
+  color: #0d47a1;
+  box-shadow: 0 4px 12px rgba(74, 144, 226, 0.2);
+}
