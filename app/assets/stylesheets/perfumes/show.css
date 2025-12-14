@@ -1,0 +1,14 @@
+.result{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    width:100%;
+    height:auto;
+    justify-content: center;
+    position:fixed;
+    top:250px;
+}
+h5{
+    font-size: 30px;
+    font-family: serif;
+}

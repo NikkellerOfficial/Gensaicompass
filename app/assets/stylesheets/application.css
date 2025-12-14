@@ -24,28 +24,35 @@ header {
   background-color: #1c08b0;
   height: 60px;
   line-height: 80px;
-  width: 99%;
+  width: 90%;
   font-weight: bold;
   display: flex;
   padding: 0px;
-  margin: 10px;
+  margin: 0px;
   justify-content: space-between;
   align-items: center;
-  font-family: monospace;
-  color:white;
+  font-family: "Orbitron", sans-serif;
+  color: white;
+  position: fixed;
+  top: 0px;
+  border-radius: 30px;
+  left: 50%;         /* 左端から画面半分の位置に配置 */
+  transform: translateX(-50%); /* 自身の幅の半分だけ左に戻す */
+  border-bottom: rgb(3, 3, 43);
+  border-width: 10px;
 }
 /* ロゴのリンク設定 */
 .logo-link {
   text-decoration: none; /* 下線を消す */
-  color: inherit;        /* 文字色を親要素から引き継ぐ（白なら白のままにする） */
+  color: inherit; /* 文字色を親要素から引き継ぐ（白なら白のままにする） */
   display: inline-block; /* レイアウト崩れ防止 */
-  cursor: pointer;       /* マウスを乗せた時に指マークにする */
+  cursor: pointer; /* マウスを乗せた時に指マークにする */
 }
 
 /* もしホバーした時に色を変えたくない場合 */
 .logo-link:hover {
   color: inherit; /* または color: white; など固定の色 */
-  opacity: 0.8;   /* 少し薄くしてクリックできる感を出す */
+  opacity: 0.8; /* 少し薄くしてクリックできる感を出す */
 }
 
 h1 {
@@ -55,29 +62,65 @@ h1 {
   align-items: center;
   font-family: "Roboto Mono", "Courier New", Courier, monospace;
 }
+header a {
+  color: white;
+  text-decoration: none;
+}
+header a:hover {
+  color: aqua;
+  transition: 0.5s;
+}
 header li {
   list-style: none;
-  margin-right: 40px;
-  color:white;
+  margin-right: 20px;
+  color: white;
 }
 .header-list {
   display: flex;
   align-items: center;
 }
-
+.mypage{
+  font-size:3px;
+}
+.logo-title{
+  color: red;
+  height: 80px;
+  font-weight: bold;
+  align-items: center;
+  font-family: "Roboto Mono", "Courier New", Courier, monospace;
+  padding-left: 40px;
+}
+header ul {
+  display: flex;
+}
+.btn-logout{
+  list-style: none;
+  margin-right: 40px;
+  color: white;
+}
+.btn-logout:hover{
+  color: red;
+  transition: 0.5s;
+}
 body {
   margin: 0;
   padding: 10px;
   background-color: #170445;
   color: white;
+  display: flex;
+  flex-direction: column; /* 縦並びにする */
+  min-height: 100vh;      /* 最低でも画面の高さ(100vh)を確保 */
+  padding-top: 80px;
 }
 footer {
   color: white;
   height: 30px;
   background-color: #000;
-  bottom: 0;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
+}
+main {
+  flex: 1; /* 余ったスペースを全てこの要素が埋める */
 }

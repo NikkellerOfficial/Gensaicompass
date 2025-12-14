@@ -1,0 +1,176 @@
+
+/* --- 全体のレイアウト --- */
+.item-detail-container {
+  max-width: 900px; /* 中央寄せ */
+  padding: 0 20px;
+  flex: 1; /* 余ったスペースを全てこの要素が埋める */
+  width: 90%;          /* スマホなど画面が狭いときは90%の幅 */
+  max-width: 900px;    /* PCなど画面が広いときは最大900pxで止める */
+
+  /* 中央寄せの魔法のコード */
+  margin-left: auto;
+  margin-right: auto;
+  height: 600px;
+}
+
+/* --- カード本体 --- */
+.detail-card {
+  background-color: #ffffff; /* 白背景で読みやすく */
+  border: 3px solid #000;    /* 太い枠線 */
+  border-radius: 16px;
+  box-shadow: 8px 8px 0px #000; /* ポップな影 */
+  padding: 30px;
+  color: #333;
+}
+
+/* --- ヘッダー（タイトル周辺） --- */
+.detail-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px dashed #ddd; /* 点線で区切り */
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.item-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+  color: #000;
+}
+
+.phase-badge {
+  background-color: #ff4757; /* 目立つ赤色 */
+  color: white;
+  padding: 5px 15px;
+  border-radius: 20px;
+  border: 2px solid #000;
+  font-weight: bold;
+}
+
+/* --- ボディ（2カラムレイアウト） --- */
+.detail-body {
+  display: flex;
+  gap: 30px; /* 画像と情報の隙間 */
+  margin-bottom: 30px;
+}
+
+/* 左側：画像 */
+.detail-image-area {
+  flex: 1; /* 横幅の比率 */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.item-img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 12px;
+  border: 2px solid #000;
+  object-fit: cover;
+}
+
+/* 右側：情報 */
+.detail-info-area {
+  flex: 1.5; /* 画像より少し広く */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* MEMOエリア */
+.about-box {
+  background-color: #e0f7fa; /* 薄い水色 */
+  border: 2px solid #000;
+  border-radius: 8px;
+  padding: 15px;
+  position: relative;
+}
+
+.section-label {
+  position: absolute;
+  top: -12px;
+  left: 10px;
+  background: #000;
+  color: #fff;
+  font-size: 0.8rem;
+  padding: 2px 10px;
+  border-radius: 4px;
+  margin: 0;
+}
+
+.item-about {
+  margin: 0;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+/* スペックリスト */
+.spec-row {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
+  font-size: 1.1rem;
+}
+
+.spec-label {
+  font-weight: bold;
+  color: #555;
+}
+
+.spec-value {
+  font-weight: bold;
+  color: #000;
+}
+
+/* --- アクションボタンエリア --- */
+.detail-actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* 共通ボタンデザイン */
+.btn {
+  text-decoration: none;
+  padding: 12px 30px;
+  border-radius: 30px;
+  border: 2px solid #000;
+  font-weight: bold;
+  transition: transform 0.1s, box-shadow 0.1s;
+  display: inline-block;
+}
+
+.btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: none !important;
+}
+
+/* 編集ボタン（目立つ色） */
+.btn-primary {
+  background-color: #ffd700; /* 黄色 */
+  color: #000;
+  box-shadow: 4px 4px 0 #000;
+}
+
+/* 戻るボタン（控えめな色） */
+.btn-secondary {
+  background-color: #fff;
+  color: #000;
+  box-shadow: 4px 4px 0 #000;
+}
+
+/* --- スマホ対応 --- */
+@media (max-width: 768px) {
+  .detail-body {
+    flex-direction: column; /* 縦並びにする */
+  }
+  
+  .detail-image-area {
+    margin-bottom: 20px;
+  }
+}

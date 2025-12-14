@@ -1,6 +1,10 @@
-        <div class="intoro">
-            <h5>診断が完了しました</h5>
-            <p>マイページに戻って、いざ準備開始！</p>
+<div class="result">     
+       <div class="intoro">
+            <h5>診断が完了しました。</h5>
+            <h5>あなただけの防災グッズリストの準備が整いました。</h5>
+            <h5>マイページに戻って、いざ準備開始！</h5>
         </div>
-        
-        <%= link_to "マイページに戻る", user_path(current_user.id) %>
+        <ul>
+        <%= button_to "マイページに戻る", user_path(current_user.id),method: :get,class:"btn-shindan" %>
+        </ul>
+</div>

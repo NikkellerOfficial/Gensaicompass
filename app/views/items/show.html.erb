@@ -1,19 +1,51 @@
-<h3>アイテムの詳細</h3>
-<div class="item">
-  <p><%= @item.name %></p>
-  <p><%= @item.about %></p>
-  <% if @item.image.attached? %>
-    <%= image_tag @item.image, size: '250x200'%>
-  <% end %>
- <% if @item.category == "私物" %>
-    <p>日頃から置き場所を確認しましょう</p>
-  <% else %>
-    <p><%= "目安の購入量：#{@item.number_person}#{@item.unit}" %></p>
-    <p><%= "主に#{@item.category}で買えます" %></p>
-  <% end %>
-  <p><%= "#{@item.phase}次準備品です。" %></p>
+<div class="item-detail-container">
   
-</div>
+  <div class="detail-card">
+    
+    <div class="detail-header">
+      <h2 class="item-title"><%= @item.name %></h2>
+      <span class="phase-badge"><%= "#{@item.phase}次準備品" %></span>
+    </div>
 
-<%= link_to "マイページに戻る", user_path(current_user.id) %>
-<%= link_to "編集する", edit_item_path(@item.id) %>
+    <div class="detail-body">
+      <div class="detail-image-area">
+        <% if @item.image.attached? %>
+          <%= image_tag @item.image, class: "item-img" %>
+        <% else %>
+          <div class="no-image">No Image</div>
+        <% end %>
+      </div>
+
+      <div class="detail-info-area">
+        <div class="info-section about-box">
+          <p class="section-label">MEMO</p>
+          <p class="item-about"><%= @item.about %></p>
+        </div>
+
+        <div class="info-section specs-list">
+          <% if @item.category == "私物" %>
+            <div class="spec-row">
+              <span class="spec-label">注意点</span>
+              <span class="spec-value">日頃から置き場所を確認しましょう</span>
+            </div>
+          <% else %>
+            <div class="spec-row">
+              <span class="spec-label">目安購入量</span>
+              <span class="spec-value"><%= "#{@item.number_person}#{@item.unit}" %></span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">購入場所</span>
+              <span class="spec-value"><%= @item.category %></span>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-actions">
+      <%= link_to "マイページに戻る", user_path(current_user.id), class: "btn btn-secondary" %>
+      <%= link_to "編集する", edit_item_path(@item.id), class: "btn btn-primary" %>
+    </div>
+
+  </div>
+</div>

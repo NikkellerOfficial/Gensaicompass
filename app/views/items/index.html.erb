@@ -9,8 +9,12 @@
   
 
   <section class="buttons fade-in-up">
-      <li><%= button_to "新規登録", new_user_registration_path, class:"btn-submit" %></li>
-      <li><%= button_to "ログイン", new_user_session_path,class:"btn-submit" %></li>
+      <% if user_signed_in? %>
+      <ul><%= button_to "マイページへ", user_path(current_user.id),class:"btn-shindan" %></ul>
+      <% else %>
+      <ul><%= button_to "新規登録", new_user_registration_path, class:"btn-shindan" %></ul>
+      <ul><%= button_to "ログイン", new_user_session_path,class:"btn-shindan" %></ul>
+      <% end %>
   </section>
 
   <div class="scroll-indicator fade-in-up">

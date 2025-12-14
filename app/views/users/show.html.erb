@@ -1,152 +1,183 @@
-<h2>マイページ</h2>
-<p>名前 : <%= @user.name %></p>
-<p>メールアドレス : <%= @user.email %></p>
-<p>プロフィール : <%= @user.profile %></p>
 
-<% if current_user.id == @user.id %>
-  <%= link_to "ユーザー情報の更新", edit_user_registration_path, class: "btn-submit" %>
-<% end %>
+<div class="left-section">
+  <div class="profile">
+    <p class="username"><%= @user.name %></p>
+    <p class="email"><%= @user.email %></p>
+    <p class="sentence"><%= @user.profile %></p>
 
-
-
-<h2>診断を始める</h2>
-<%= link_to "診断を始める", new_perfume_path, class: "link" %>
-
-
-<h3>購入場所絞り込み</h3>
- <%= form_tag({controller: "users", action: "show"}, method: :get) do %>
-  <%= select_tag :search,
-        options_for_select(['スーパー', 'コンビニ','ホームセンター', 'ドラッグストア','デパート','その他'], params[:search]),
-        include_blank: 'すべて' %>
-  <%= submit_tag '絞り込む' %>
-<% end %>
-
-<% @user.perfumes.each do |t| %>
-    <% if t.question == "1111" %>
-    <% recommended_items = @items %> 
-
-    <ul>
-      <% recommended_items.each do |t| %>
-        <% if t.image.attached? %>
-            <%= image_tag t.image, size: '250x200'%>
-        <% end %>
-        <%= link_to t.user.name, user_path(t.user.id) %>
-        <%= t.name %>
-        <%= t.about %>
-        <%= t.category %>
-        <%= "#{t.number_person}#{t.unit}" %>
-        <%= t.speciality %>
-        <%= "#{t.phase}次品" %>
-        <%= link_to "詳細へ", item_path(t.id) %>
-      <% end %>
-    </ul>
-
-    <% elsif t.question == "1112" %>
-    <% recommended_items = @items.where(speciality:["一般","女性","高齢者","乳幼児"]) %> 
-    <ul>
-      <% recommended_items.each do |t| %>
-        <% if t.image.attached? %>
-            <%= image_tag t.image, size: '250x200'%>
-        <% end %>
-        <%= link_to t.user.name, user_path(t.user.id) %>
-        <%= t.user.email %>
-        <%= t.name %>
-        <%= t.about %>
-        <%= t.category %>
-        <%= "#{t.number_person}#{t.unit}" %>
-        <%= t.speciality %>
-        <%= "#{t.phase}次品" %>
-        <%= link_to "詳細へ", item_path(t.id) %>
-      <% end %>
-    </ul>
-
-    <% elsif t.question == "1121" %>
-    <h6>ローズ</h6>
-    <p>華やかで上品な香り</p>
-    <p>ストレスを緩和してくれる効果がある</p>
-
-    <% elsif t.question == "1122" %>
-    <h6>ラベンダー</h6>
-    <p>優しく女性らしい香り</p>
-    <p>気持ちを落ち着かせてくれる</p>
-
-    <% elsif t.question == "1211" %>
-    <h6>ジャスミン</h6>
-    <p>爽やかなのに官能的な香り</p>
-    <p>幸福感を得やすい</p>
-
-    <% elsif t.question == "1212" %>
-    <h6>ピーチ</h6>
-    <p>フレッシュで優しい香り</p>
-    <p>アンチエイジングにも最適</p>
-
-    <% elsif t.question == "1221" %>
-    <h6>アップル</h6>
-    <p>特徴的で甘い香り</p>
-    <p>万人受けしやすい</p>
-
-    <% elsif t.question == "1222" %>
-    <% recommended_items = @items %>
-
-    <ul>
-      <% recommended_items.each do |t| %>
-          <%= t.name %> 
-      <% end %>
-    </ul>
-
-    <% elsif t.question == "2111" %>
-    <h6>ローズマリー</h6>
-    <p>きりりとした強めの香りが特徴的</p>
-    <p>美容効果が高い</p>
-
-    <% elsif t.question == "2112" %>
-    <h6>ベルガモット</h6>
-    <p>柑橘系の果実</p>
-    <p>甘くてフレッシュな、万能な香料</p>
-
-    <% elsif t.question == "2121" %>
-    <h6>ムスク</h6>
-    <p>雄のジャコウジカの腹部にある香嚢から抽出した香料</p>
-    <p>官能的で重い香り</p>
-
-    <% elsif t.question == "2122" %>
-    <h6>アンバー</h6>
-    <p>マッコウクジラの結石から抽出した香料</p>
-    <p>魅惑的で色気のある香り</p>
-
-    <% elsif t.question == "2211" %>
-    <h6>シナモン</h6>
-    <p>甘いスパイスの香り</p>
-    <p>香水のアクセントとしてよく使われる</p>
-
-    <% elsif t.question == "2212" %>
-    <h6>バニラ</h6>
-    <p>甘くて官能的な香り</p>
-    <p>上品で年齢を問わず人気が高い</p>
-
-    <% elsif t.question == "2221" %>
-    <h6>イランイラン</h6>
-    <p>色気のある濃厚で甘い香り</p>
-    <p>恋愛に効果があり</p>
-
-    <% elsif t.question == "2222" %>
-    <% recommended_items = @items.where(speciality: ["一般"]) %>
-
-    <ul>
-      <% recommended_items.each do |t| %>
-      <% if t.image.attached? %>
-            <%= image_tag t.image, class: "my-custom-image"%>
-      <% end %>
-      <%= t.name %>
-      <%= t.category %>
-      <%= "#{t.number_person}#{t.unit}" %>
-      <%= link_to "詳細へ", item_path(t.id) %>
-      <% end %>
-    </ul>
-    
-
+    <% if current_user.id == @user.id %>
+      <%= button_to "ユーザー情報の更新", edit_user_registration_path,method: :get, class: "btn-profile" %>
     <% end %>
-<% end %>
+  </div>
+
+
+  <div class="diagnosis-container">
+    <h2>診断を始める</h2>
+    <%= button_to "診断を始める", new_perfume_path,method: :get, class: "btn-shindan" %>
+  </div>
+
+  <div class="search-form-container">
+    <h3>購入場所絞り込み</h3>
+    <%= form_tag({controller: "users", action: "show"}, method: :get) do %>
+      <%= select_tag :search,
+            options_for_select(['スーパー', 'コンビニ','ホームセンター', 'ドラッグストア','デパート','その他'], params[:search]),
+            include_blank: 'すべて',class: 'custom-select' %>
+      <%= submit_tag '絞り込む',class: 'btn-shindan' %>
+    <% end %>
+  </div>
+</div>
+
+<div class="container">
+  <% @user.perfumes.each do |t| %>
+      <% if t.question == "1111" %>
+      <% recommended_items = @items %> 
+
+      
+        <% recommended_items.each do |t| %>
+          <% color_class = case t.phase
+            when 1 then "bg-red"
+            when 0 then "bg-blue"
+            else "" 
+            end %>
+          <% color_class_2 = case t.phase
+            when 1 then "ph-red"
+            when 0 then "ph-blue"
+            else "" 
+            end %>
+          
+          <%= link_to item_path(t.id), class: "card-link" do %>
+            <div class="card <%= color_class %>">
+              <div class="phase <%= color_class_2 %>">
+              <%= "#{t.phase}次品" %>
+              </div>
+              <div class="name">
+                <%= t.name %>
+              </div>
+              <div class="image">
+                <% if t.image.attached? %>
+                  <%= image_tag t.image, size: '250x200'%>
+                <% end %>
+              </div>
+              <div class="place">
+                <%= "購入場所:#{t.category}" %>
+              </div>
+              <div class="number">
+              <%= "1人当たりの量:#{t.number_person}#{t.unit}" %>
+              </div>
+              
+            </div>
+          <% end %>
+        <% end %>
+      
+
+      <% elsif t.question == "1112" %>
+      <% recommended_items = @items.where(speciality:["一般","女性","高齢者","乳幼児"]) %> 
+      <ul>
+        <% recommended_items.each do |t| %>
+          <% if t.image.attached? %>
+              <%= image_tag t.image, size: '250x200'%>
+          <% end %>
+          <%= link_to t.user.name, user_path(t.user.id) %>
+          <%= t.user.email %>
+          <%= t.name %>
+          <%= t.about %>
+          <%= t.category %>
+          <%= "#{t.number_person}#{t.unit}" %>
+          <%= t.speciality %>
+          <%= "#{t.phase}次品" %>
+          <%= link_to "詳細へ", item_path(t.id) %>
+          <%= link_to "編集する", edit_item_path(t.id) %>
+        <% end %>
+      </ul>
+
+      <% elsif t.question == "1121" %>
+      <h6>ローズ</h6>
+      <p>華やかで上品な香り</p>
+      <p>ストレスを緩和してくれる効果がある</p>
+
+      <% elsif t.question == "1122" %>
+      <h6>ラベンダー</h6>
+      <p>優しく女性らしい香り</p>
+      <p>気持ちを落ち着かせてくれる</p>
+
+      <% elsif t.question == "1211" %>
+      <h6>ジャスミン</h6>
+      <p>爽やかなのに官能的な香り</p>
+      <p>幸福感を得やすい</p>
+
+      <% elsif t.question == "1212" %>
+      <h6>ピーチ</h6>
+      <p>フレッシュで優しい香り</p>
+      <p>アンチエイジングにも最適</p>
+
+      <% elsif t.question == "1221" %>
+      <h6>アップル</h6>
+      <p>特徴的で甘い香り</p>
+      <p>万人受けしやすい</p>
+
+      <% elsif t.question == "1222" %>
+      <% recommended_items = @items %>
+
+      <ul>
+        <% recommended_items.each do |t| %>
+            <%= t.name %> 
+        <% end %>
+      </ul>
+
+      <% elsif t.question == "2111" %>
+      <h6>ローズマリー</h6>
+      <p>きりりとした強めの香りが特徴的</p>
+      <p>美容効果が高い</p>
+
+      <% elsif t.question == "2112" %>
+      <h6>ベルガモット</h6>
+      <p>柑橘系の果実</p>
+      <p>甘くてフレッシュな、万能な香料</p>
+
+      <% elsif t.question == "2121" %>
+      <h6>ムスク</h6>
+      <p>雄のジャコウジカの腹部にある香嚢から抽出した香料</p>
+      <p>官能的で重い香り</p>
+
+      <% elsif t.question == "2122" %>
+      <h6>アンバー</h6>
+      <p>マッコウクジラの結石から抽出した香料</p>
+      <p>魅惑的で色気のある香り</p>
+
+      <% elsif t.question == "2211" %>
+      <h6>シナモン</h6>
+      <p>甘いスパイスの香り</p>
+      <p>香水のアクセントとしてよく使われる</p>
+
+      <% elsif t.question == "2212" %>
+      <h6>バニラ</h6>
+      <p>甘くて官能的な香り</p>
+      <p>上品で年齢を問わず人気が高い</p>
+
+      <% elsif t.question == "2221" %>
+      <h6>イランイラン</h6>
+      <p>色気のある濃厚で甘い香り</p>
+      <p>恋愛に効果があり</p>
+
+      <% elsif t.question == "2222" %>
+      <% recommended_items = @items.where(speciality: ["一般"]) %>
+
+      <ul>
+        <% recommended_items.each do |t| %>
+        <% if t.image.attached? %>
+              <%= image_tag t.image, class: "my-custom-image"%>
+        <% end %>
+        <%= t.name %>
+        <%= t.category %>
+        <%= "#{t.number_person}#{t.unit}" %>
+        <%= link_to "詳細へ", item_path(t.id) %>
+        <% end %>
+      </ul>
+      
+
+      <% end %>
+  <% end %>
+</div>
 
 
 

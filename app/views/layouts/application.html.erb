@@ -10,8 +10,7 @@
     <%= yield :head %>
 
     <link rel="manifest" href="/manifest.json">
-    <link rel="icon" href="/icon.png" type="image/png">
-    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="icon" href="/icon.PNG" type="image/png">
     <link rel="apple-touch-icon" href="/icon.png">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
@@ -19,14 +18,23 @@
 
   <body>
   <header>
+    <div class="logo-title">
     <%= link_to root_path, class: "logo-link" do %>
-    <h1 class="header-title">GensaiCompass</h1>
+    <h1 class="header-title">GENSAI COMPASS</h1>
     <% end %>
+    <% if user_signed_in? %>
+      <% if current_page?(user_path(current_user.id)) %>
+      <li class="mypage">マイページ</li>
+      <% end %>
+    <% end %>
+    </div>
+
     <div class="header-list">
     <ul>
       <% if user_signed_in? %>
-      <li><%= button_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-      <li><%= link_to "マイページへ", user_path(current_user.id) %></li>
+      <li><%= link_to "アカウント設定", edit_user_registration_path%></li>
+      <li><%= link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: :delete }, class: "btn-logout" %>
+      </li>
       <% else %>
       <li><%= link_to "新規登録", new_user_registration_path %></li>
       <li><%= link_to "ログイン", new_user_session_path %></li>
@@ -36,7 +44,6 @@
   </header>
   <main>
     <%= yield %>
-    
   </main>
   <footer>
       <p>Copyright © NikkellerOfficial All Rights Reserved.</p>

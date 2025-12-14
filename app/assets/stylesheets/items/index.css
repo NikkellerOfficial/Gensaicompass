@@ -1,6 +1,6 @@
 /* --- ベース設定 --- */
 .top-page-wrapper {
-  background-color: #050520; /* 深い紺色（画像に合わせて調整） */
+  background-color: #170445; /* 深い紺色（画像に合わせて調整） */
   color: white;
   min-height: 100vh;
   padding-bottom: 100px;
@@ -18,7 +18,7 @@
 
 /* --- ヘッダー --- */
 .top-header {
-  background-color: #2b5cb8; /* 上部の青いバー */
+  background-color: #170445; /* 上部の青いバー */
   padding: 10px 20px;
   display: flex;
   justify-content: flex-end; /* 右寄せ */
@@ -76,7 +76,7 @@
 .mission-section,
 .philosophy-section,
 .how-to-section {
-  max-width: 900px; /* 画面幅いっぱいにしない */
+  max-width: 1100px; /* 画面幅いっぱいにしない */
   margin: 0 auto;
   padding: 40px 20px;
 }
@@ -136,11 +136,33 @@ p {
 .fade-in-up {
   opacity: 0;
   transform: translateY(50px); /* 50px下に配置 */
-  transition: opacity 1.5s ease, transform 1.5s ease; /* 1.5秒かけて変化 */
+  transition: opacity 1.0s ease, transform 1.0s ease; /* 1.5秒かけて変化 */
 }
 
 /* 表示状態：不透明にして、元の位置に戻す */
 .fade-in-up.active {
   opacity: 1;
   transform: translateY(0);
+}
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  width: 100%;
+  font-size: 20px;
+  gap:300px;
+  margin-top: 0px;
+}
+
+
+.front-submit {
+  background-color: #006680; /* 暗めの青緑 */
+  color: white;
+  border: none;
+  padding: 15px 60px;
+  cursor: pointer;
+  transition: background-color 0.1s;
+  width: 100px; /* ボタン幅を合わせる場合 */
+  height: 5px;
 }

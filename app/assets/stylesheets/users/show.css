@@ -23,7 +23,226 @@
 }
 
 .my-custom-image {
-  width: 120px; /* 幅を指定 */
-  height: 120px; /* 高さを指定 */
+  width: 60px; /* 幅を指定 */
+  height: 60px; /* 高さを指定 */
   object-fit: cover; /* 縦横比を維持して枠に収める */
+  padding: 10px;
+}
+
+/* --- コンテナ（配置の調整） --- */
+.search-form-container form {
+  /* 横並びにする */
+  align-items: center; /* 上下の中心を合わせる */
+  gap: 10px; /* 入力欄とボタンの間隔 */
+  width: 100px;
+  position: fixed;
+  top: 500px;
+}
+
+/* --- プルダウン本体のデザイン --- */
+.custom-select {
+  /* ブラウザデフォルトのスタイル（矢印など）を無効化 */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  /* サイズと余白 */
+  width: 200px; /* 必要に応じて調整 */
+  padding: 10px 35px 10px 15px; /* 右側の余白は矢印用 */
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+
+  /* 枠線と背景 */
+  border: 1px solid #ccc;
+  border-radius: 6px; /* 角丸 */
+  background-color: #fff;
+
+  /* 自前の矢印アイコン（SVGデータURI） */
+  /* 色を変えたい場合は svgの fill='%23666' の 666 を変更してください */
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 10px center; /* 右端から10pxの位置に配置 */
+  background-size: 16px; /* 矢印の大きさ */
+
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.left-section {
+  position: fixed;
+  top: 80px;
+  display: flex;
+  width: 20%;
+  background-color: lightblue;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.profile {
+  position: fixed;
+  top: 80px;
+  display: flex;
+  width: 20%;
+  flex-wrap: wrap;
+  border: 5px solid yellow;
+  justify-content: center;
+  background-color: rgb(232, 229, 229);
+  border-radius: 50px;
+  color: black;
+}
+.username {
+  font-weight: 700;
+  font-size: large;
+}
+.email {
+  font-weight: 80;
+}
+.sentence {
+  font-weight: 80;
+  font-family: serif;
+}
+
+.diagnosis-container {
+  position: fixed;
+  top: 300px;
+  display: flex;
+  width: 20%;
+  flex-wrap: wrap;
+  border: 5px solid yellow;
+  justify-content: center;
+  background-color: gray;
+  border-radius: 5px;
+}
+
+.btn-shindan {
+  background-color: #0707ed; /* 暗めの青緑 */
+  color: white;
+  border: none;
+  padding: 15px 0px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.1s;
+  width: 150px; /* ボタン幅を合わせる場合 */
+  max-width: 100%;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: 4px 4px 0 #000;
+}
+.btn-shindan:hover {
+  background-color: rgb(7, 228, 214);
+  transition: 0.1s;
+}
+.btn-shindan:active {
+  transform: translate(2px, 2px);
+  box-shadow: none !important;
+}
+
+.btn-profile {
+  background-color: #0707ed; /* 暗めの青緑 */
+  color: white;
+  border: none;
+  padding: 5px 0px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.1s;
+  width: 150px; /* ボタン幅を合わせる場合 */
+  max-width: 100%;
+  border-radius: 50px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  font-weight: bold;
+  height: 35px;
+  border: 2px solid #000;
+  transition: transform 0.1s, box-shadow 0.1s;
+  display: inline-block;
+  text-decoration: none;
+  box-shadow: 4px 4px 0 #000;
+}
+.btn-profile:hover {
+  background-color: rgb(7, 228, 214);
+  transition: 0.1s;
+}
+.btn-profile:active {
+  transform: translate(2px, 2px);
+  box-shadow: none !important;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 80%; /* ★幅を80%に縮小 */
+  margin-left: auto; /* ★左側の余白を自動で埋める＝本体が右に寄る */
+  margin-right: 0;
+  margin-bottom: 5px;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  transition: 0.3s;
+  opacity: 0.8;
+}
+.card-link {
+  text-decoration: none; /* リンクの下線を消す */
+  color: inherit; /* 文字色を親要素（黒や白）に合わせる */
+  display: block; /* ブロック要素として扱い、幅などを有効にする */
+}
+.name {
+  font-weight: 700;
+}
+.ph-red {
+  margin-left: auto; /* ★左側の余白を自動で埋める＝本体が右に寄る */
+  margin-right: 0;
+  margin-bottom: auto;
+  width: 20%;
+  margin-top: 0;
+  background-color: green;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+}
+.ph-blue {
+  margin-left: auto; /* ★左側の余白を自動で埋める＝本体が右に寄る */
+  margin-right: 0;
+  margin-bottom: auto;
+  width: 20%;
+  margin-top: 0;
+  background-color: blue;
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.card {
+  /* 既存のデザインはそのまま維持 */
+  background-color: #87cbf9; /* 例: 水色 */
+  border-radius: 12px; /* 角を少し丸くするとより立体的になります */
+
+  /* 立体感のキモ：影をつける */
+  /* 横方向 縦方向 ぼかし 広がり 色 */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+
+  /* アニメーションの準備 */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.bg-red {
+  color: black;
+  width: 300px;
+  height: 315px;
+  margin: 10px;
+  padding: 10px;
+  border: 5px solid green;
+  text-align: center;
+  background-color: rgb(164, 249, 164);
+}
+
+.bg-blue {
+  color: black;
+  width: 300px;
+  height: 315px;
+  margin: 10px;
+  padding: 10px;
+  border: 5px solid blue;
+  text-align: center;
 }
