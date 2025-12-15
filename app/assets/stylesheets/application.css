@@ -21,10 +21,11 @@
 }
 
 header {
+  z-index: 1000;
   background-color: #1c08b0;
   height: 60px;
   line-height: 80px;
-  width: 90%;
+  width: 100%;
   font-weight: bold;
   display: flex;
   padding: 0px;
@@ -74,17 +75,22 @@ header li {
   list-style: none;
   margin-right: 20px;
   color: white;
+  font-family: serif;
 }
 .header-list {
   display: flex;
   align-items: center;
 }
 .mypage{
-  font-size:3px;
+  font-size:15px;
+  color:white;
+  font-family: "Orbitron", sans-serif;
+  margin-left: 10px;
 }
 .logo-title{
   color: red;
   height: 80px;
+  display: flex;
   font-weight: bold;
   align-items: center;
   font-family: "Roboto Mono", "Courier New", Courier, monospace;
@@ -97,6 +103,7 @@ header ul {
   list-style: none;
   margin-right: 40px;
   color: white;
+  font-family: serif;
 }
 .btn-logout:hover{
   color: red;
@@ -105,7 +112,8 @@ header ul {
 body {
   margin: 0;
   padding: 10px;
-  background-color: #170445;
+  /*background-color: #170445;*/
+  background: linear-gradient(135deg, #0a0e27 0%, #4d63e2 100%);
   color: white;
   display: flex;
   flex-direction: column; /* 縦並びにする */

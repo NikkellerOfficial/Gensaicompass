@@ -15,12 +15,35 @@
 
 /* --- カード本体 --- */
 .detail-card {
-  background-color: #ffffff; /* 白背景で読みやすく */
+  /*background-color: #ffffff; /* 白背景で読みやすく */
   border: 3px solid #000;    /* 太い枠線 */
   border-radius: 16px;
   box-shadow: 8px 8px 0px #000; /* ポップな影 */
   padding: 30px;
   color: #333;
+  font-family: serif;
+  font: bold;
+  background: linear-gradient(
+    135deg, 
+    rgba(135, 206, 255, 0.4) 0%,   /* 明るい水色 (透過率40%) */
+    rgba(224, 255, 255, 0.1) 100%  /* 薄いシアン (透過率10%) */
+  );
+
+  /* すりガラスのようなぼかし効果 */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  /* --- 枠線（光の反射） --- */
+  /* 上と左の線を少し太く・白くすることで、光源が当たっているように見せます */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.6);
+  border-left: 1px solid rgba(255, 255, 255, 0.6);
+
+  /* --- 影と形状 --- */
+  /* 背景が濃いので、黒い影をしっかり落とすと浮遊感が増します */
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  
+  border-radius: 5px; /* 角丸を少し大きめに */
 }
 
 /* --- ヘッダー（タイトル周辺） --- */
@@ -37,7 +60,7 @@
   font-size: 2rem;
   font-weight: bold;
   margin: 0;
-  color: #000;
+  color: white;
 }
 
 .phase-badge {
@@ -62,14 +85,15 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  background-color: white;
+  border: 2px solid #000;
 }
 
 .item-img {
   width: 100%;
   max-width: 300px;
   height: auto;
-  border-radius: 12px;
-  border: 2px solid #000;
+  border-radius: 12px;  
   object-fit: cover;
 }
 
@@ -119,12 +143,12 @@
 
 .spec-label {
   font-weight: bold;
-  color: #555;
+  color: white;
 }
 
 .spec-value {
   font-weight: bold;
-  color: #000;
+  color: white;
 }
 
 /* --- アクションボタンエリア --- */

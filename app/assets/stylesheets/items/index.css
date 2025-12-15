@@ -1,6 +1,7 @@
 /* --- ベース設定 --- */
 .top-page-wrapper {
-  background-color: #170445; /* 深い紺色（画像に合わせて調整） */
+  /*background-color: #170445; /* 深い紺色（画像に合わせて調整） */
+  background: linear-gradient(135deg, #0a0e27 0%, #4d63e2 100%);
   color: white;
   min-height: 100vh;
   padding-bottom: 100px;
@@ -42,8 +43,9 @@
 
 .hero-sub {
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   margin-bottom: 0;
+  font-family: serif;
 }
 
 .hero-title {
@@ -117,6 +119,8 @@ p {
 .section-title {
   font-size: 2.5rem;
   margin-bottom: 20px;
+  color:aqua;
+  font-family: serif;
 }
 
 /* --- 色の強調クラス --- */
