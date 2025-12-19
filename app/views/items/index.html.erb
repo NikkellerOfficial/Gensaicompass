@@ -1,6 +1,6 @@
 <div class="top-page-wrapper">
 
-    <%= link_to "新規投稿へ", new_item_path %>
+    
 
   <section class="hero-section fade-in-up">
     <p class="hero-sub">備えこそ、唯一の<span class="highlight-blue">希望</span>。</p>
@@ -55,5 +55,40 @@
   <section class="how-to-section">
     <h2 class="section-title text-center">HOW TO USE</h2>
   </section>
+
+  <div class="howto fade-in-up">
+    <div class="howtoc">
+        <%= image_tag 'shindan.png', class: 'event' %>
+                <div class="func">
+                    1. 作る。
+                </div>
+                <div class="role">
+                    ログインをし、マイページに移った後、診断機能が利用できます。これにより、あなただけの必要最低限の防災グッズリストが完成します。
+                </div>
+                
+            </div>
+            <div class="howtoc">
+            <%= image_tag 'sibori.png', class: 'event' %>
+                <div class="func">
+                    2.絞る。
+                </div>
+                <div class="role">
+                    作った防災グッズリストには、主要な購入場所の検索をかけることができます。これにより、生活に防災グッズ購入の習慣を取り入れることができます。
+                </div>
+                
+            </div>
+            <div class="howtoc">
+            <%= image_tag 'detail.png', class: 'event-detail' %>
+                <div class="func">
+                    3. 知る。
+                </div>
+                <div class="role">
+                    各アイテムをクリックすることで、その詳細な情報を閲覧できます。
+                </div>
+                
+  </div>
+
+
+  
 
 </div>

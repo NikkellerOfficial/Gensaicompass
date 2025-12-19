@@ -128,6 +128,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  bottom: 0;
 }
 main {
   flex: 1; /* 余ったスペースを全てこの要素が埋める */
